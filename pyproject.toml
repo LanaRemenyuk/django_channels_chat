@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "django-channels-chat"
+version = "0.1.0"
+description = ""
+authors = ["Lana <lan2828@yandex.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.8"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
