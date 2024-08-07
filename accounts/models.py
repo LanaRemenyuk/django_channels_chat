@@ -3,6 +3,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser
 from django.utils import timezone
 
+from .manager import CustomUserManager
+
 
 class User(AbstractBaseUser):
     email = models.EmailField(max_length=255, unique=True)
@@ -12,6 +14,8 @@ class User(AbstractBaseUser):
     phone_regex = RegexValidator(regex=r'^((\+7)|8)\d{10}$',
                                  message="Phone number must be entered in the format: '+79999999999' or '89999999999'.")
     phone_number = models.CharField(validators=[phone_regex], max_length=12, null=True, blank=True)
+
+    objects = CustomUserManager()
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELS = []
